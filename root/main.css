@@ -14,15 +14,23 @@ body {
     font-family: "Micro 5 Charted", sans-serif;
     font-weight: 400;
     font-style: normal;
+    transition: background-color 1s, color 1s;
 
+}
+.cont:hover{
+    background-color: #333;
+    color: white;
 }
 
 .cont img {
     border-radius: 50%;
+    float: inline-start;
 }
 
 .cont div {
-    margin-left: 10px; /* Added margin for spacing */
+    margin-left: 15%; /* Added margin for spacing */
+    float: inline-end;
+    margin-right: 20%;
 }
 
 .icon {
