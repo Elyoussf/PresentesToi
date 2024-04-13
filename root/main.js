@@ -1,19 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var sections = document.querySelectorAll('.section');
+    var contents = document.querySelectorAll('.content');
     var nameElement = document.getElementById('name');
     var roleElement = document.getElementById('role');
     var nameText = "HAMZA EL-YOUSSFI";
     var roleText = "Software Engineer Student";
 
     function checkVisibility() {
-        sections.forEach(function(section) {
-            if (isElementInViewport(section)) {
-                section.classList.add('visible');
+        contents.forEach(function(content) {
+            if (isElementInViewport(content)) {
+                content.classList.add('active');
             }
         });
     }
 
-    function typeText(element, text) {
+    function typeText(element, text, callback) {
         var i = 0;
         var intervalId = setInterval(function() {
             if (i < text.length) {
@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 i++;
             } else {
                 clearInterval(intervalId);
+                if (callback) callback();
             }
         }, 100); // Adjust typing speed as needed
     }
@@ -36,27 +37,13 @@ document.addEventListener('DOMContentLoaded', function() {
         );
     }
 
-    // Type out name and role
-    typeText(nameElement, nameText);
-    setTimeout(function() {
-        typeText(roleElement, roleText);
-    }, nameText.length * 100); // Start typing role after name is finished
-
-    window.addEventListener('scroll', checkVisibility);
-    window.addEventListener('resize', checkVisibility);
-
-    // Check visibility on page load
-    checkVisibility();
+    // Type out name and role sequentially
+    typeText(nameElement, nameText, function() {
+        typeText(roleElement, roleText, function() {
+            // Start checking visibility after typing is finished
+            window.addEventListener('scroll', checkVisibility);
+            window.addEventListener('resize', checkVisibility);
+            checkVisibility();
+        });
+    });
 });
-
-// Function to handle scroll event
-function handleScroll() {
-    var content = document.querySelector('.content');
-    if (isElementInViewport(content)) {
-        content.classList.add('active');
-        window.removeEventListener('scroll', handleScroll);
-    }
-}
-
-// Add scroll event listener
-window.addEventListener('scroll', handleScroll);

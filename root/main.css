@@ -1,12 +1,20 @@
 body {
     text-align: center;
-    background-color: rgb(67, 77, 94);
+    background-color: rgb(235, 237, 240e); /* Light background color */
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .cont {
     display: flex;
     flex-direction: row;
-    border: rgb(54, 16, 16);
+    border: 2px solid transparent; /* Added border */
+    transition: border-color 0.3s; /* Transition for border color */
+    font-family: "Micro 5 Charted", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
 }
 
 .cont img {
@@ -41,9 +49,22 @@ h1, h2 {
         margin-left: 0; /* Reset margin */
     }
 }
-/* Hide content by default */
 
-/* Show content when active class is applied */
-.cont.active {
-    display: block;
+/* Border effect on hover */
+.cont:hover {
+    border-color: white; /* Border color on hover */
+}
+
+/* Background and font color for sections */
+.education, .projects, .contact,.stack {
+    border: 2px solid transparent;
+    border-radius: 5%; /* Added border */
+    padding: 10px; /* Added padding */
+    transition: background-color 1s, color 1s; /* Transition for background color and font color */
+}
+
+.education:hover, .projects:hover, .contact:hover ,.stack:hover{
+    background-color: #333; /* Dark background color on hover */
+    color: white; /* Font color on hover */
+    box-shadow: 5px;
 }
