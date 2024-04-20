@@ -1,9 +1,12 @@
 body {
     text-align: center;
     background-color: rgb(235, 237, 240e); /* Light background color */
-    font-family: "Pacifico", cursive;
-    font-weight: 400;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: weight;
     font-style: normal;
+      
+      
 }
 
 .cont {
@@ -61,6 +64,9 @@ h1, h2 {
 /* Border effect on hover */
 .cont:hover {
     border-color: white; /* Border color on hover */
+    font-family: "Jersey 25", sans-serif;
+        font-weight: 400;
+        font-style: normal;
 }
 
 /* Background and font color for sections */
@@ -75,4 +81,7 @@ h1, h2 {
     background-color: #333; /* Dark background color on hover */
     color: white; /* Font color on hover */
     box-shadow: 5px;
+    font-family: "Jersey 25", sans-serif;
+        font-weight: 400;
+        font-style: normal;
 }
