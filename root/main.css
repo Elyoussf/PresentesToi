@@ -1,10 +1,11 @@
 body {
     text-align: center;
-    background-color: rgb(235, 237, 240e); /* Light background color */
+    background-color: rgb(53, 57, 53); /* Light background color */
     font-family: "Roboto Mono", monospace;
     font-optical-sizing: auto;
     font-weight: weight;
     font-style: normal;
+
       
       
 }
@@ -15,11 +16,14 @@ body {
     border: 2px solid transparent; /* Added border */
     transition: border-color 0.3s; /* Transition for border color */
     font-family: "Micro 5 Charted", sans-serif;
-    font-weight: 400;
+    font-weight: 400px;
     font-style: normal;
     transition: background-color 1s, color 1s;
+    justify-content: space-evenly;
+ 
 
 }
+
 .cont:hover{
     background-color: #333;
     color: white;
@@ -28,6 +32,8 @@ body {
 .cont img {
     border-radius: 50%;
     float: inline-start;
+    width: 120px;
+
 }
 
 .cont div {
@@ -53,7 +59,7 @@ h1, h2 {
     }
 
     .cont img {
-        order: 1; /* Change order of image */
+        order: 2; /* Change order of image */
     }
 
     .cont div {
@@ -61,27 +67,53 @@ h1, h2 {
     }
 }
 
-/* Border effect on hover */
+
 .cont:hover {
-    border-color: white; /* Border color on hover */
+    border-color: white; 
     font-family: "Jersey 25", sans-serif;
         font-weight: 400;
         font-style: normal;
 }
 
-/* Background and font color for sections */
+
 .education, .projects, .contact,.stack {
     border: 2px solid transparent;
-    border-radius: 5%; /* Added border */
-    padding: 10px; /* Added padding */
-    transition: background-color 1s, color 1s; /* Transition for background color and font color */
+    
+    padding: 10px; 
+    transition: background-color 1s, color 1s; 
 }
 
 .education:hover, .projects:hover, .contact:hover ,.stack:hover{
-    background-color: #333; /* Dark background color on hover */
-    color: white; /* Font color on hover */
+    background-color: #333;
+    color: white;
     box-shadow: 5px;
-    font-family: "Jersey 25", sans-serif;
-        font-weight: 400;
-        font-style: normal;
+   
+}
+.stack {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    
+    
+    border-radius: 5px;
+   
+    margin: 0 auto;
+}
+.stack h2 {
+    margin-top: 0;
+}
+.stack ul {
+    list-style-type: none;
+    padding: 0;
+}
+.stack ul li {
+    margin-bottom: 5px;
+}
+.stack .frontend {
+    color: #007bff;
+}
+.stack .backend {
+    color: #28a745;
+}
+.stack .other {
+    color: #6c757d;
 }

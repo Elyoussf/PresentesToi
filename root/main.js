@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var nameElement = document.getElementById('name');
     var roleElement = document.getElementById('role');
     var nameText = "HAMZA EL-YOUSSFI";
-    var roleText = "Software Engineer Student";
+    var roleText = "Software Engineering Student";
 
     function checkVisibility() {
         contents.forEach(function(content) {
