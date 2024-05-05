@@ -42,8 +42,8 @@ body {
     margin-right: 20%;
 }
 
-.icon {
-    width: 5%;
+.icon,.icons {
+    width: 20px;
     border-radius: 50%;
 }
 
@@ -104,6 +104,9 @@ h1, h2 {
 .stack ul {
     list-style-type: none;
     padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
 }
 .stack ul li {
     margin-bottom: 5px;
