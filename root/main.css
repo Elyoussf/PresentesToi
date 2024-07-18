@@ -1,13 +1,10 @@
 body {
-    text-align: center;
-    background-color: rgb(53, 57, 53); /* Light background color */
-    font-family: "Roboto Mono", monospace;
-    font-optical-sizing: auto;
-    font-weight: weight;
-    font-style: normal;
-
-      
-      
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(45deg, #f06, #3498db);
+    background-size: 200% 200%;
+    animation: gradientAnimation 10s infinite;
 }
 
 .cont {
@@ -24,10 +21,6 @@ body {
 
 }
 
-.cont:hover{
-    background-color: #333;
-    color: white;
-}
 
 .cont img {
     border-radius: 50%;
@@ -68,12 +61,6 @@ h1, h2 {
 }
 
 
-.cont:hover {
-    border-color: white; 
-    font-family: "Jersey 25", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-}
 
 
 .education, .projects, .contact,.stack {
@@ -120,3 +107,120 @@ h1, h2 {
 .stack .other {
     color: #6c757d;
 }
+nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.content {
+    padding: 5px;
+    background: linear-gradient(45deg, #fff, #f0f0f0);
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 2s ease-out;
+}
+
+.project {
+    margin: 20px 0;
+    padding: 10px;
+    background: linear-gradient(45deg, #fff, #f0f0f0);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.project {
+    margin: 20px 0;
+    padding: 10px;
+    background: linear-gradient(45deg, #fff, #f0f0f0);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    position: relative;
+}
+
+.project button {
+    background: linear-gradient(45deg, #e74c3c, #3498db);
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.project button:hover {
+    background: linear-gradient(45deg, #3498db, #e74c3c);
+}
+
+.modal-button {
+    background: linear-gradient(45deg, #3498db, #e74c3c);
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.modal-button:hover {
+    background: linear-gradient(45deg, #e74c3c, #3498db);
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    width: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+
+.close-button {
+    color: #555;
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.X,.email{
+    width: 50px;
+    height: 40px;
+    margin-left: 40%;
+}
+.email{
+    margin-left: 20px;
+}
+
