@@ -1,229 +1,1338 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamza Elyoussfi - Software Engineering Student</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #f5f5f5;
-            --text-color: #333;
-            --accent-color: #4a90e2;
-            --secondary-color: #e0e0e0;
-        }
-
-        @media (prefers-color-scheme: dark) {
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hamza El-Youssfi | Software Engineer</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+        <style>
+            /* Variables */
             :root {
-                --bg-color: #1a1a1a;
-                --text-color: #f5f5f5;
-                --accent-color: #64b5f6;
-                --secondary-color: #333;
+                --primary-color: #2d3e50;
+                --secondary-color: #3498db;
+                --accent-color: #e74c3c;
+                --text-color: #333;
+                --light-bg: #f9f9f9;
+                --white: #ffffff;
+                --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                --transition: all 0.3s ease;
             }
-        }
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            transition: background-color 0.3s, color 0.3s;
-        }
+            /* Base Styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+            body {
+                color: var(--text-color);
+                background-color: var(--light-bg);
+                line-height: 1.6;
+            }
 
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px 0;
-        }
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
 
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
+            section {
+                padding: 80px 0;
+                scroll-margin-top: 80px;
+            }
 
-        .details {
-            flex-grow: 1;
-            margin-left: 20px;
-        }
+            h1,
+            h2,
+            h3,
+            h4 {
+                margin-bottom: 15px;
+                font-weight: 600;
+            }
 
-        h1, h2, h3 {
-            margin: 0;
-        }
+            h2 {
+                font-size: 2.2rem;
+                position: relative;
+                display: inline-block;
+                margin-bottom: 30px;
+            }
 
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            background-color: var(--secondary-color);
-            border-radius: 5px;
-            overflow: hidden;
-        }
+            h2::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -10px;
+                width: 50px;
+                height: 4px;
+                background-color: var(--secondary-color);
+            }
 
-        nav ul li {
-            padding: 10px 20px;
-        }
+            p {
+                margin-bottom: 15px;
+            }
 
-        nav ul li a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
+            a {
+                color: var(--secondary-color);
+                text-decoration: none;
+                transition: var(--transition);
+            }
 
-        nav ul li a:hover {
-            color: var(--accent-color);
-        }
+            a:hover {
+                color: var(--accent-color);
+            }
 
-        .content {
-            margin-top: 40px;
-        }
+            /* Button Styles */
+            .btn {
+                display: inline-block;
+                padding: 12px 25px;
+                background-color: var(--secondary-color);
+                color: var(--white);
+                border-radius: 5px;
+                font-weight: 500;
+                transition: var(--transition);
+                border: none;
+                cursor: pointer;
+            }
 
-        .project {
-            background-color: var(--secondary-color);
-            border-radius: 5px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
+            .btn:hover {
+                background-color: var(--primary-color);
+                color: var(--white);
+                transform: translateY(-2px);
+            }
 
-        .project h3 {
-            color: var(--accent-color);
-        }
+            .btn-outline {
+                background-color: transparent;
+                border: 2px solid var(--secondary-color);
+                color: var(--secondary-color);
+            }
 
-        .button {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
+            .btn-outline:hover {
+                background-color: var(--secondary-color);
+                color: var(--white);
+            }
 
-        .button:hover {
-            background-color: #2980b9;
-        }
-
-        @media (max-width: 768px) {
+            /* Header & Navigation */
             header {
+                background-color: var(--white);
+                box-shadow: var(--shadow);
+                position: fixed;
+                width: 100%;
+                top: 0;
+                z-index: 1000;
+            }
+
+            nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 0;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+                font-weight: 700;
+                color: var(--primary-color);
+            }
+
+            .logo span {
+                color: var(--secondary-color);
+            }
+
+            .nav-links {
+                display: flex;
+                list-style: none;
+            }
+
+            .nav-links li {
+                margin-left: 30px;
+            }
+
+            .nav-links a {
+                color: var(--primary-color);
+                font-weight: 500;
+                position: relative;
+            }
+
+            .nav-links a::after {
+                content: "";
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: var(--secondary-color);
+                transition: var(--transition);
+            }
+
+            .nav-links a:hover::after {
+                width: 100%;
+            }
+
+            .mobile-menu {
+                display: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            /* Hero Section */
+            #hero {
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                background-color: var(--white);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .hero-content {
+                max-width: 600px;
+                z-index: 1;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+                margin-bottom: 20px;
+                color: var(--primary-color);
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+                margin-bottom: 30px;
+            }
+
+            .hero-image {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                width: 45%;
+                max-height: 90%;
+                opacity: 0.9;
+            }
+
+            .social-links {
+                display: flex;
+                gap: 15px;
+                margin-top: 30px;
+            }
+
+            .social-links a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: var(--primary-color);
+                color: var(--white);
+                transition: var(--transition);
+            }
+
+            .social-links a:hover {
+                background-color: var(--secondary-color);
+                transform: translateY(-3px);
+            }
+
+            /* About Section */
+            #about {
+                background-color: var(--light-bg);
+            }
+
+            .about-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 50px;
+                align-items: center;
+            }
+
+            .about-text h3 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                color: var(--secondary-color);
+            }
+
+            .info-list {
+                margin: 30px 0;
+            }
+
+            .info-list li {
+                display: flex;
+                margin-bottom: 15px;
+            }
+
+            .info-list li strong {
+                min-width: 120px;
+                display: inline-block;
+            }
+
+            /* Skills Section */
+            #skills {
+                background-color: var(--white);
+            }
+
+            .skills-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 30px;
+            }
+
+            .skill-category {
+                background-color: var(--light-bg);
+                padding: 25px;
+                border-radius: 10px;
+                box-shadow: var(--shadow);
+                transition: var(--transition);
+            }
+
+            .skill-category:hover {
+                transform: translateY(-5px);
+            }
+
+            .skill-category h3 {
+                color: var(--secondary-color);
+                margin-bottom: 20px;
+                display: flex;
+                align-items: center;
+            }
+
+            .skill-category h3 i {
+                margin-right: 10px;
+            }
+
+            .skill-list {
+                list-style: none;
+            }
+
+            .skill-list li {
+                margin-bottom: 15px;
+                display: flex;
+                align-items: center;
+            }
+
+            .skill-list li::before {
+                content: "•";
+                color: var(--secondary-color);
+                font-size: 1.5rem;
+                margin-right: 10px;
+            }
+
+            /* Experience Section */
+            #experience {
+                background-color: var(--light-bg);
+            }
+
+            .timeline {
+                position: relative;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            .timeline::after {
+                content: "";
+                position: absolute;
+                width: 2px;
+                background-color: var(--primary-color);
+                top: 0;
+                bottom: 0;
+                left: 50%;
+                margin-left: -1px;
+            }
+
+            .timeline-item {
+                padding: 20px 40px;
+                position: relative;
+                width: 50%;
+                box-sizing: border-box;
+            }
+
+            .timeline-item:nth-child(odd) {
+                left: 0;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 50%;
+            }
+
+            .timeline-content {
+                padding: 25px;
+                background-color: var(--white);
+                border-radius: 10px;
+                box-shadow: var(--shadow);
+                position: relative;
+                transition: var(--transition);
+            }
+
+            .timeline-content:hover {
+                transform: translateY(-5px);
+            }
+
+            .timeline-content h3 {
+                color: var(--primary-color);
+                margin-bottom: 10px;
+            }
+
+            .timeline-content h4 {
+                color: var(--secondary-color);
+                font-size: 1rem;
+                margin-bottom: 15px;
+            }
+
+            .timeline-content ul {
+                list-style: none;
+                margin-top: 15px;
+            }
+
+            .timeline-content ul li {
+                margin-bottom: 8px;
+                padding-left: 20px;
+                position: relative;
+            }
+
+            .timeline-content ul li::before {
+                content: "→";
+                color: var(--secondary-color);
+                position: absolute;
+                left: 0;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content::after {
+                content: "";
+                position: absolute;
+                top: 25px;
+                right: -15px;
+                width: 0;
+                height: 0;
+                border-top: 15px solid transparent;
+                border-bottom: 15px solid transparent;
+                border-left: 15px solid var(--white);
+            }
+
+            .timeline-item:nth-child(even) .timeline-content::after {
+                content: "";
+                position: absolute;
+                top: 25px;
+                left: -15px;
+                width: 0;
+                height: 0;
+                border-top: 15px solid transparent;
+                border-bottom: 15px solid transparent;
+                border-right: 15px solid var(--white);
+            }
+
+            .timeline-dot {
+                width: 20px;
+                height: 20px;
+                background-color: var(--secondary-color);
+                border-radius: 50%;
+                position: absolute;
+                top: 25px;
+                z-index: 1;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-dot {
+                right: -10px;
+            }
+
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: -10px;
+            }
+
+            /* Projects Section */
+            #projects {
+                background-color: var(--white);
+            }
+
+            .projects-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                gap: 30px;
+            }
+
+            .project-card {
+                background-color: var(--light-bg);
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: var(--shadow);
+                transition: var(--transition);
+                height: 100%;
+                display: flex;
                 flex-direction: column;
+            }
+
+            .project-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .project-img {
+                height: 200px;
+                background-color: var(--primary-color);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 3rem;
+                color: var(--white);
+            }
+
+            .project-content {
+                padding: 25px;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .project-content h3 {
+                color: var(--primary-color);
+                margin-bottom: 10px;
+            }
+
+            .project-content p {
+                margin-bottom: 20px;
+                flex: 1;
+            }
+
+            .tech-stack {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            .tech-tag {
+                background-color: var(--primary-color);
+                color: var(--white);
+                padding: 5px 10px;
+                border-radius: 20px;
+                font-size: 0.8rem;
+            }
+
+            .project-links {
+                display: flex;
+                gap: 15px;
+                margin-top: auto;
+            }
+
+            /* Contact Section */
+            #contact {
+                background-color: var(--light-bg);
+            }
+
+            .contact-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 50px;
+            }
+
+            .contact-info {
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .contact-item {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .contact-icon {
+                width: 50px;
+                height: 50px;
+                background-color: var(--secondary-color);
+                color: var(--white);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.2rem;
+            }
+
+            .contact-form {
+                background-color: var(--white);
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: var(--shadow);
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            .form-control {
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                font-size: 1rem;
+                transition: var(--transition);
+            }
+
+            .form-control:focus {
+                outline: none;
+                border-color: var(--secondary-color);
+            }
+
+            textarea.form-control {
+                min-height: 150px;
+                resize: vertical;
+            }
+
+            /* Footer */
+            footer {
+                background-color: var(--primary-color);
+                color: var(--white);
+                padding: 40px 0 20px;
                 text-align: center;
             }
 
-            .details {
-                margin-left: 0;
-                margin-top: 20px;
+            .footer-links {
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+                margin: 20px 0;
             }
 
-            nav ul {
-                flex-direction: column;
+            .footer-links a {
+                color: var(--white);
             }
 
-            nav ul li {
-                text-align: center;
+            .footer-links a:hover {
+                color: var(--secondary-color);
             }
-        }
-    </style>
-</head>
-<body>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4R9J5Y85D"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-Z4R9J5Y85D');
-    </script>
 
-    <div class="container">
+            .copyright {
+                margin-top: 30px;
+                font-size: 0.9rem;
+                color: rgba(255, 255, 255, 0.7);
+            }
+
+            /* Responsive Design */
+            @media screen and (max-width: 992px) {
+                .about-content {
+                    grid-template-columns: 1fr;
+                }
+
+                .timeline::after {
+                    left: 40px;
+                }
+
+                .timeline-item {
+                    width: 100%;
+                    padding-left: 80px;
+                    padding-right: 0;
+                }
+
+                .timeline-item:nth-child(even) {
+                    left: 0;
+                }
+
+                .timeline-item:nth-child(odd) .timeline-content::after,
+                .timeline-item:nth-child(even) .timeline-content::after {
+                    left: -15px;
+                    border-right: 15px solid var(--white);
+                    border-left: 0;
+                }
+
+                .timeline-item:nth-child(odd) .timeline-dot,
+                .timeline-item:nth-child(even) .timeline-dot {
+                    left: 30px;
+                }
+
+                .contact-container {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            @media screen and (max-width: 768px) {
+                .nav-links {
+                    display: none;
+                }
+
+                .mobile-menu {
+                    display: block;
+                }
+
+                .hero-content h1 {
+                    font-size: 2.5rem;
+                }
+
+                .hero-image {
+                    opacity: 0.3;
+                    width: 90%;
+                }
+
+                .projects-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            /* Animation Classes */
+            .fade-in {
+                opacity: 0;
+                transform: translateY(20px);
+                transition:
+                    opacity 0.5s ease,
+                    transform 0.5s ease;
+            }
+
+            .fade-in.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            /* Mobile Nav Menu */
+            .mobile-nav {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 300px;
+                height: 100vh;
+                background-color: var(--primary-color);
+                z-index: 1001;
+                padding: 40px 20px;
+                transition: var(--transition);
+            }
+
+            .mobile-nav.active {
+                right: 0;
+            }
+
+            .close-menu {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                color: var(--white);
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            .mobile-nav ul {
+                list-style: none;
+                margin-top: 50px;
+            }
+
+            .mobile-nav li {
+                margin-bottom: 20px;
+            }
+
+            .mobile-nav a {
+                color: var(--white);
+                font-size: 1.2rem;
+                display: block;
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                z-index: 1000;
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+            }
+
+            .overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header -->
         <header>
-            <img src="Hamza.jpg" alt="Hamza's profile" class="profile-pic">
-            <div class="details">
-                <h1 id="name"></h1>
-                <h3 id="role"></h3>
+            <div class="container">
+                <nav>
+                    <div class="logo">Hamza<span>Dev</span></div>
+                    <ul class="nav-links">
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                    <div class="mobile-menu">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </nav>
             </div>
         </header>
 
-        <nav>
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav">
+            <div class="close-menu">
+                <i class="fas fa-times"></i>
+            </div>
             <ul>
+                <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-        </nav>
+        </div>
+        <div class="overlay"></div>
 
-        <section id="about" class="content">
-            <h2>About Me</h2>
-            <p>I am a Software Engineering student at INPT in Morocco. I am a programming enthusiast and technology passionate. I like learning new things and putting myself under pressure. I am usually sitting in front of my computer or going outside for a run, bike ride, or walk. I enjoy meeting great people who do great things in their lives!</p>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Hamza El-Youssfi</h1>
+                    <h3>Undergraduate Software Engineer</h3>
+                    <p>
+                        Software engineering student with hands-on experience in
+                        Rust, Python, and full-stack development. Passionate
+                        about building practical tech products and exploring
+                        systems, SaaS, and AI.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn">View My Work</a>
+                        <a href="#contact" class="btn btn-outline"
+                            >Contact Me</a
+                        >
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/Elyoussf" target="_blank"
+                            ><i class="fab fa-github"></i
+                        ></a>
+                        <a href="https://x.com/helyoussfii" target="_blank"
+                            ><i class="fab fa-twitter"></i
+                        ></a>
+                        <a href="https://www.linkedin.com/in/hamza-el-youssfi-a1aab2301/" target="_blank"
+                            ><i class="fab fa-linkedin"></i
+                        ></a>
+                    </div>
+                </div>
+
+            </div>
         </section>
 
-        <section id="projects" class="content">
-            <h2>My Projects</h2>
-            <div class="project">
-                <h3>Create a clone for git in Rust</h3>
-                <p>This project was a collaboration with a colleague. It basically builds a system that does the same as <strong>git init</strong>, <strong>git add</strong>, and <strong>git commit</strong>. It was written purely in Rust with a slight percentage of Batch (Windows scripting).</p>
-                <a href="https://github.com/Elyoussf/rust_project" class="button">Details</a>
+        <!-- About Section -->
+        <section id="about" class="fade-in">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Software Engineering Student & Developer</h3>
+                        <p>
+                            I'm a software engineering student at Institut
+                            National des Postes et Telecommunications,
+                            passionate about building practical tech solutions
+                            with a focus on systems programming, SaaS products,
+                            and exploring AI applications.
+                        </p>
+                        <p>
+                            With hands-on experience in Rust, Python, and
+                            full-stack development, I enjoy tackling challenging
+                            problems and creating efficient, user-friendly
+                            applications. I'm currently looking for a summer
+                            internship to apply and grow my skills in real-world
+                            projects.
+                        </p>
+                        <ul class="info-list">
+                            <li><strong>Name:</strong> Hamza El-Youssfi</li>
+                            <li>
+                                <strong>Email:</strong> elyoussfiihaamza@gmail.com
+                            </li>
+                            <li><strong>Phone:</strong> +212618550719</li>
+                            <li>
+                                <strong>Location:</strong> Rabat Al irfane,
+                                Rabat, Morocco
+                            </li>
+                            <li><strong>Nationality:</strong> Moroccan</li>
+                        </ul>
+                        <a href="../accessories/CV - Hamza El-Youssfi-3.pdf" class="btn" download>Download CV</a>
+                    </div>
+                    <div class="about-image">
+                        <img
+                            src="../accessories//Hamza.jpg"
+                            alt="Hamza El-Youssfi"
+                        />
+                    </div>
+                </div>
             </div>
-            <div class="project">
-                <h3>LocalChatbot</h3>
-                <p>This project was done just a few months after OpenAI's release of GPT-3.5. It is a basic CLI app that involves API calls using Express in Node.js and data storage simulation (using a CSV file), as well as Dockerization.</p>
-                <a href="https://github.com/Elyoussf/localChatGPT" class="button">Details</a>
-            
-            </div>
-            <div class="project">
-                <h3>xconnectpro</h3>
-                <p>An AI wrapper tool that helps Business owners find their potential leads and outreach them effortlessly it uses NLP ,sentiment analysis as well as Statistics to find The right People in X  for Your business and You can generate cold messages that address his pain points. </p>
-                <a href="https://xconnectpro.pro" class="button">Details</a>
-            
-            </div>
-            <div class="project">
-                <h3>dawntales</h3>
-                <p>It's a fun project where The subscribers receive every day at a specific time a story that talks about someone who has the same interests as him and how he overcomes some problems in his journey .. it's an AI tool designated to people who arise early every single day in order to accomplish a task that makes them neasr to their objectives. </p>
-                <strong>This App is not in the cloud anymore for cost problems.</strong>
-                <br>
-                <a href="" class="button">Details</a>
-            </div>
-            <div class="project">
-                <h3>Huffman_algo in RUST</h3>
-                <p>This is one of the  projects done in rust for language learning pupose. It's a from scratch implementaion of Huffman compression algorithm </p>
-               
-                <a href="https://github.com/Elyoussf/huffman_Rust" class="button">Details</a>
-            </div>
-            <div class="project">
-                <h3>Some Linux commands written in rust </h3>
-                <p>A simple and efficient implementaion of some linux commands written in rust for fun and learning purpose </p>
-
-                <a href="https://github.com/Elyoussf/Rust_Commands" class="button">Details</a>
-            </div>
-            <h2>Internship (Summer 2024)</h2>
-            <div class="project">
-                <h3>CRUD app for automation purpose</h3>
-                <p>The <a href="https://www.transwest.com/"><strong>Transwest</strong></a> company (Gana) tasked me with building a CRUD app that allows them to monitor their trucks' safety based on some physical factors. Some knowledge of Express.js and MongoDB was sufficient to do the job.</p>
-                <a href="https://github.com/Elyoussf/Staytuned" class="button">Details</a>
-            </div>
-            
         </section>
 
-        <section id="contact" class="content">
-            <h2>Contact Me</h2>
-            <strong>Coming soon</strong>
+        <!-- Skills Section -->
+        <section id="skills" class="fade-in">
+            <div class="container">
+                <h2>My Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>
+                            <i class="fas fa-code"></i> Programming Languages
+                        </h3>
+                        <ul class="skill-list">
+                            <li>Rust</li>
+                            <li>Python</li>
+                            <li>JavaScript</li>
+                            <li>Java</li>
+                            <li>C</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>
+                            <i class="fas fa-laptop-code"></i> Web Development
+                        </h3>
+                        <ul class="skill-list">
+                            <li>HTML5 & CSS3</li>
+                            <li>React & React Native</li>
+                            <li>Spring Boot</li>
+                            <li>Express.js</li>
+                            <li>PostgreSQL</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-server"></i> DevOps</h3>
+                        <ul class="skill-list">
+                            <li>Docker</li>
+                            <li>Kubernetes</li>
+                            <li>CI/CD (GitLab)</li>
+                            <li>Private Cloud (OpenStack)</li>
+                            <li>Jenkins</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-users"></i> Soft Skills</h3>
+                        <ul class="skill-list">
+                            <li>Teamwork</li>
+                            <li>Time Management</li>
+                            <li>Communication</li>
+                            <li>Problem-solving</li>
+                            <li>Work Ethic</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-language"></i> Languages</h3>
+                        <ul class="skill-list">
+                            <li>English (Fluent)</li>
+                            <li>French (Fluent)</li>
+                            <li>Arabic (Fluent)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </section>
-    </div>
 
-    <script>
-        document.getElementById('name').textContent = 'Hamza Elyoussfi';
-        document.getElementById('role').textContent = 'Software Engineering Student';
-    </script>
-</body>
+        <!-- Experience Section -->
+        <section id="experience" class="fade-in">
+            <div class="container">
+                <h2>Experience & Education</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Web Developer Internship</h3>
+                            <h4>
+                                Transwest, Remote | May 2024 - September 2024
+                            </h4>
+                            <ul>
+                                <li>
+                                    Developed, deployed, and maintained a
+                                    website for truck management
+                                </li>
+                                <li>
+                                    Implemented a high-performance alert system
+                                    for real-time monitoring
+                                </li>
+                                <li>
+                                    Enabled responsible parties to stay aware of
+                                    urgent interventions needed
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Engineering Degree (MSc equivalent)</h3>
+                            <h4>
+                                Institut National des Postes et
+                                Telecommunications | 2021 - Present
+                            </h4>
+                            <p>
+                                Pursuing a degree in Software Engineering with
+                                focus on systems programming, web development,
+                                and software architecture.
+                            </p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="fade-in">
+            <div class="container">
+                <h2>Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Student Management System</h3>
+                            <p>
+                                Developed a full-stack application for student
+                                management with CI/CD integration.
+                            </p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Java (Spring Boot)</span>
+                                <span class="tech-tag">React.js</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">GitLab</span>
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">Kubernetes</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-outline"
+                                    ><i class="fab fa-github"></i> Code(private)</a
+                                >
+                                <a href="#" class="btn"
+                                    ><i class="fas fa-external-link-alt"></i>
+                                    Not Live</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>BudgetBite SaaS App</h3>
+                            <p>
+                                Mobile app that helps users save money by
+                                tracking shopping habits and alerting them about
+                                purchases against their diet.
+                            </p>
+                            <div class="tech-stack">
+                                <span class="tech-tag"
+                                    >React Native (Expo)</span
+                                >
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Digital Ocean</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-outline"
+                                    ><i class="fab fa-github"></i> Code(private)</a
+                                >
+                                <a href="#" class="btn"
+                                    ><i class="fas fa-external-link-alt"></i>
+                                        Demo (not yet)</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>BudgetBite Marketing Website</h3>
+                            <p>
+                                Marketing website to track and generate new
+                                leads for the BudgetBite mobile app.
+                            </p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Express.js</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Elyoussf/receipt-waitlist" class="btn btn-outline"
+                                    ><i class="fab fa-github"></i> Code</a
+                                >
+                                <a href="https://budgetbite.store" class="btn"
+                                    ><i class="fas fa-external-link-alt"></i>
+                                    Live</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Load Balancer System</h3>
+                            <p>
+                                Developed a load balancer to distribute requests
+                                based on specified strategies in a distributed
+                                system.
+                            </p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Rust</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Elyoussf/Load_Balancer" class="btn btn-outline"
+                                    ><i class="fab fa-github"></i> Code</a
+                                >
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Particle System Simulations</h3>
+                            <p>
+                                Built software from scratch that simulates the
+                                motion of particles within a hot fluid.
+                            </p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Rust</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Elyoussf/ParticleSystem" class="btn btn-outline"
+                                    ><i class="fab fa-github"></i> Code</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Terminal Snake Game</h3>
+                            <p>
+                                Terminal-based snake game built from scratch
+                                with custom rendering system.
+                            </p>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Rust</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Elyoussf/ParticleSystem" class="btn btn-outline"
+                                    ><i class="fab fa-github"></i> Code</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="fade-in">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3>Email</h3>
+                                <p>elyoussihaamza@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h3>Phone</h3>
+                                <p>+212618550719</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h3>Location</h3>
+                                <p>Rabat Al irfane, Rabat, Morocco</p>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://github.com/Elyoussf" target="_blank"
+                                ><i class="fab fa-github"></i
+                            ></a>
+                            <a href="https://x.com/helyoussfii" target="_blank"
+                                ><i class="fab fa-twitter"></i
+                            ></a>
+                            <a href="https://www.linkedin.com/in/hamza-el-youssfi-a1aab2301/" target="_blank"
+                                ><i class="fab fa-linkedin"></i
+                            ></a>
+                        </div>
+                    </div>
+                    <!-- <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Your Name"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    placeholder="Your Email"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Subject"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <textarea
+                                    class="form-control"
+                                    placeholder="Your Message"
+                                    required
+                                ></textarea>
+                            </div>
+                            <button type="submit" class="btn">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div> -->
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="logo">Hamza<span>Dev</span></div>
+                <div class="footer-links">
+                    <a href="#hero">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2025 Hamza El-Youssfi. All Rights Reserved.
+                </div>
+            </div>
+        </footer>
+
+        <!-- JavaScript -->
+        <script>
+            // Mobile Menu Toggle
+            const mobileMenu = document.querySelector(".mobile-menu");
+            const mobileNav = document.querySelector(".mobile-nav");
+            const closeMenu = document.querySelector(".close-menu");
+            const overlay = document.querySelector(".overlay");
+            const mobileLinks = document.querySelectorAll(".mobile-nav a");
+
+            mobileMenu.addEventListener("click", () => {
+                mobileNav.classList.add("active");
+                overlay.classList.add("active");
+                document.body.style.overflow = "hidden";
+            });
+
+            closeMenu.addEventListener("click", closeNavMenu);
+            overlay.addEventListener("click", closeNavMenu);
+
+            mobileLinks.forEach((link) => {
+                link.addEventListener("click", closeNavMenu);
+            });
+
+            function closeNavMenu() {
+                mobileNav.classList.remove("active");
+                overlay.classList.remove("active");
+                document.body.style.overflow = "auto";
+            }
+
+            // Scroll Animation
+            const fadeElements = document.querySelectorAll(".fade-in");
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                        }
+                    });
+                },
+                { threshold: 0.1 },
+            );
+
+            fadeElements.forEach((element) => {
+                observer.observe(element);
+            });
+
+            // Form Submission
+            const contactForm = document.getElementById("contactForm");
+
+            contactForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+
+                // In a real implementation, you would send the form data to a server
+                // For demo purposes, we'll just show an alert
+                alert(
+                    "Thank you for your message! I will get back to you soon.",
+                );
+                contactForm.reset();
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                anchor.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute("href");
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: "smooth",
+                        });
+                    }
+                });
+            });
+
+            // Active navigation highlighting
+            const sections = document.querySelectorAll("section");
+            const navLinks = document.querySelectorAll(".nav-links a");
+
+            window.addEventListener("scroll", () => {
+                let current = "";
+
+                sections.forEach((section) => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.clientHeight;
+
+                    if (
+                        window.pageYOffset >= sectionTop &&
+                        window.pageYOffset < sectionTop + sectionHeight
+                    ) {
+                        current = section.getAttribute("id");
+                    }
+                });
+
+                navLinks.forEach((link) => {
+                    link.classList.remove("active");
+                    if (link.getAttribute("href") === `#${current}`) {
+                        link.classList.add("active");
+                    }
+                });
+            });
+        </script>
+    </body>
 </html>
